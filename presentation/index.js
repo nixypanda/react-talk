@@ -3,12 +3,16 @@ import React from "react";
 
 // Import Spectacle Core tags
 import {
+  Appear,
+  BlockQuote,
+  Cite,
   Deck,
   Heading,
   Image,
   Layout,
   ListItem,
   List,
+  Quote,
   Slide,
   Spectacle
 } from "spectacle";
@@ -21,16 +25,20 @@ import preloader from "spectacle/lib/utils/preloader";
 // Import theme
 import createTheme from "spectacle/lib/themes/default";
 
-import helloWorld from "../assets/helloworld";
-import helloName from "../assets/helloname";
-import helloNameJSX from "../assets/hellonamejsx";
-import stateful from "../assets/stateful";
-
 // Require CSS
 require("normalize.css");
 require("spectacle/lib/themes/default/index.css");
 
 
+// Importing all of the code snippets
+const CODE_SNIPPETS = {
+  HELLO_WORLD: require("../assets/helloworld"),
+  HELLO_NAME: require("../assets/helloname"),
+  HELLO_NAME_JSX: require("../assets/hellonamejsx"),
+  STATEFUL_RC: require("../assets/stateful")
+};
+
+// Images
 const images = {
   frameworks: require("../assets/0days.jpg"),
   react: require("../assets/react.png"),
@@ -44,7 +52,7 @@ preloader(images);
 
 const theme = createTheme({
   primary: "#0E2738",
-  secondary: "hotpink"
+  secondary: "beige"
 });
 
 export default class Presentation extends React.Component {
@@ -53,7 +61,7 @@ export default class Presentation extends React.Component {
       <Spectacle theme={theme}>
         <Deck transition={["zoom", "slide"]} transitionDuration={500}>
 
-          <Slide transition={["slide"]} bgColor="primary" notes="You can even put notes on your slide. Awesome. Right?">
+          <Slide transition={["slide"]} bgColor="primary" >
             <Image src={images.react.replace("/", "")} margin="0px auto 40px" height="293px"/>
             <Heading size={2} caps fit textColor="white" textFont="primary">
               Introduction to React
@@ -84,7 +92,43 @@ export default class Presentation extends React.Component {
             </Heading>
           </Slide>
 
-          <CodeSlide transition={[]} lang="js" code={helloWorld} ranges={[
+          <Slide transition={["fade"]} bgColor="primary" textColor="tertiary">
+            <Heading caps fit textColor="tertiary">Why React?</Heading>
+            <List>
+              <Appear>
+                <ListItem notes={`Simply express how your app should look at any given point in time,
+                and React will automatically manage all UI updates when your underlying data changes.`}
+                >
+                  Simple
+              </ListItem>
+              </Appear>
+              <Appear>
+                <ListItem notes={`When the data changes, React conceptually hits the 'refresh' button, and knows to
+                only update the changed parts.`}
+                >
+                  Declarative
+                </ListItem>
+              </Appear>
+              <Appear>
+                <ListItem notes={`React is all about building reusable components. In fact, with React the only thing
+                  you do is build components. Since they're so encapsulated, components make code reuse, testing, and
+                  separation of concerns easy.`}
+                >
+                  Composable Components
+                </ListItem>
+              </Appear>
+              <Appear>
+                <ListItem notes={`React challenges a lot of conventional wisdom, and at first glance some of the ideas
+                  may seem crazy. Give it five minutes; those crazy ideas have worked for building thousands of
+                  components both inside and outside of Facebook and Instagram.`}
+                >
+                  Give It Five Minutes
+                </ListItem>
+              </Appear>
+            </List>
+          </Slide>
+
+          <CodeSlide transition={[]} lang="js" code={CODE_SNIPPETS.HELLO_WORLD} ranges={[
             { loc: [ 0, 17], title: "Let\'s dive right in" },
             { loc: [ 0, 17], title: "Hello World!! Perhaps.." },
             { loc: [ 2, 3], note: "creating a react component" },
@@ -100,7 +144,7 @@ export default class Presentation extends React.Component {
           ]}
           />
 
-          <CodeSlide transition={[]} lang="js" code={helloName} ranges={[
+          <CodeSlide transition={[]} lang="js" code={CODE_SNIPPETS.HELLO_NAME} ranges={[
             { loc: [ 0, 17], title: "Anoter example" },
             { loc: [7, 8], note: "And the ever popular Hello " },
             { loc: [8, 9], note: "Looks like some sort of a property object with a name field" },
@@ -110,7 +154,7 @@ export default class Presentation extends React.Component {
           ]}
           />
 
-          <CodeSlide transition={[]} lang="js" code={helloNameJSX} ranges={[
+          <CodeSlide transition={[]} lang="js" code={CODE_SNIPPETS.HELLO_NAME_JSX} ranges={[
             { loc: [ 0, 11], title: "Yet another example" },
             { loc: [ 2, 3], note: "The return here seems different. Right?" },
             { loc: [ 2, 3], title: "This is JSX" },
@@ -119,12 +163,43 @@ export default class Presentation extends React.Component {
           ]}
           />
 
-          <CodeSlide transition={[]} lang="js" code={stateful} ranges={[
+          <CodeSlide transition={[]} lang="js" code={CODE_SNIPPETS.STATEFUL_RC} ranges={[
             { loc: [ 0, 21], title: "Dude seriously. Another Example?" },
-            { loc: [ 0, 21], title: "A stateful react component with 2 lifecycle hooks" },
+            { loc: [ 0, 21], title: "A CODE_SNIPETS.STATEFUL_RC react component with 2 lifecycle hooks" },
             { loc: [ 0, 21], title: "That\"s all folks!" }
           ]}
           />
+
+          <Slide transition={["spin", "slide"]} bgColor="tertiary">
+            <Heading size={1} caps fit lineHeight={1.5} textColor="primary">
+              Concepts and Theory
+            </Heading>
+          </Slide>
+
+          <Slide transition={["spin", "slide"]} bgColor="tertiary">
+            <BlockQuote>
+              <Quote textSize={40} >
+                Our intellectual powers are rather geared to master static relations and that our powers to visualize
+                processes evolving in time are relatively poorly developed. For that reason we should do our utmost to
+                shorten the conceptual gap between the static program and the dynamic process, to make the
+                correspondence between the program and the processas trivial as possible.
+              </Quote>
+              <Cite textColor="primary">Edsger W Dijkstra</Cite>
+            </BlockQuote>
+          </Slide>
+
+          <Slide transition={["zoom", "fade"]} bgColor="primary">
+            <Heading caps fit textColor="secondary">About the speaker</Heading>
+            <Layout>
+              <List textColor="white">
+                <ListItem>Sherub Thakur</ListItem>
+                <ListItem>Sapient Global Markets</ListItem>
+                <ListItem>Gurgaon GGN</ListItem>
+                <ListItem>@Sherub_7</ListItem>
+                <ListItem>http://github.com/jck-d-rpr</ListItem>
+              </List>
+            </Layout>
+          </Slide>
 
           <Slide transition={["spin", "slide"]} bgColor="tertiary">
             <Heading size={1} caps fit lineHeight={1.5} textColor="primary">
@@ -134,6 +209,7 @@ export default class Presentation extends React.Component {
               ---- Sherub Thakur ----
             </Heading>
           </Slide>
+
         </Deck>
       </Spectacle>
     );
