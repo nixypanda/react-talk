@@ -27,10 +27,12 @@ import preloader from "spectacle/lib/utils/preloader";
 import createTheme from "spectacle/lib/themes/default";
 
 import Timer from "./Timer";
+import GitHubCards from "./GitHubCards";
 
 // Require CSS
 require("normalize.css");
 require("spectacle/lib/themes/default/index.css");
+require("./GitHubCards.css");
 
 
 // Importing all of the code snippets
@@ -251,11 +253,25 @@ export default class Presentation extends React.Component {
           <Slide
             transition={["spin", "slide"]}
             bgColor="tertiary"
-            notes="S"
+            notes={`
+              C
+              React abstracts away the DOM from you, giving a simpler programming model and better performance. React
+              implements one-way reactive data flow which reduces boilerplate and is easier to reason about than
+              traditional data binding."
+            `}
           >
             <Heading size={1} caps fit lineHeight={1.5} textColor="primary">
               Concepts and Theory
             </Heading>
+            <Layout>
+              <List textColor="primary">
+                <Appear><ListItem>Properties</ListItem></Appear>
+                <Appear><ListItem>State</ListItem></Appear>
+                <Appear><ListItem>Lifecycle</ListItem></Appear>
+                <Appear><ListItem>Virtual DOM</ListItem></Appear>
+                <Appear><ListItem>Data flow</ListItem></Appear>
+              </List>
+            </Layout>
           </Slide>
 
           <Slide
@@ -282,33 +298,12 @@ export default class Presentation extends React.Component {
             <Heading size={1} caps fit lineHeight={1.5} textColor="primary">
               UI = f(state)
             </Heading>
-          </Slide>
-
-          <Slide
-            transition={["zoom", "fade"]}
-            bgColor="primary"
-            notes={`
-              C
-              React abstracts away the DOM from you, giving a simpler programming model and better performance. React
-              implements one-way reactive data flow which reduces boilerplate and is easier to reason about than
-              traditional data binding."
-            `}
-          >
-            <Heading caps fit textColor="secondary">Concepts</Heading>
-            <Layout>
-              <List textColor="white">
-                <Appear><ListItem>Properties</ListItem></Appear>
-                <Appear><ListItem>State</ListItem></Appear>
-                <Appear><ListItem>Lifecycle</ListItem></Appear>
-                <Appear><ListItem>Virtual DOM</ListItem></Appear>
-                <Appear><ListItem>Data flow</ListItem></Appear>
-              </List>
-            </Layout>
+            <Text textColor="primary">i.e. a static mental modal for your application</Text>
           </Slide>
 
           <Slide
             transition={["slide"]}
-            bgColor="primary"
+            bgColor="tertiary"
             notes={`
               C
               props (short for properties) are a Component's configuration, its options if you may. They are received
@@ -317,14 +312,14 @@ export default class Presentation extends React.Component {
               A Component cannot change its props, but it is responsible for putting together the props of its child
               Components. 
             `}>
-            <Heading size={1} caps fit lineHeight={1.5} textColor="secondary">
+            <Heading size={1} caps fit lineHeight={1.5} textColor="primary">
               Props
             </Heading>
           </Slide>
 
           <Slide
             transition={["slide"]}
-            bgColor="primary"
+            bgColor="tertiary"
             notes={`
               C
               The state starts with a default value when a Component mounts and then suffers from mutations in time
@@ -333,25 +328,25 @@ export default class Presentation extends React.Component {
               A Component manages its own state internally, but—besides setting an initial state—has no business
               fiddling with the state of its children. You could say the state is private.
             `}>
-            <Heading size={1} caps fit lineHeight={1.5} textColor="secondary">
+            <Heading size={1} caps fit lineHeight={1.5} textColor="primary">
               State
             </Heading>
           </Slide>
 
           <Slide
             transition={["slide"]}
-            bgColor="primary"
+            bgColor="tertiary"
             notes={`
               C
             `}>
-            <Heading size={1} caps fit lineHeight={1.5} textColor="secondary">
+            <Heading size={1} caps fit lineHeight={1.5} textColor="primary">
               Life cycle
             </Heading>
           </Slide>
 
           <Slide
             transition={["slide"]}
-            bgColor="primary"
+            bgColor="tertiary"
             notes={`
               S:
               Some kind of light weight copy of our DOM. We can change it as we want and then save to our real DOM
@@ -374,33 +369,33 @@ export default class Presentation extends React.Component {
               Efficient update of sub-tree only.
             `}
           >
-            <Heading size={1} caps fit lineHeight={1.5} textColor="tertiary" >
+            <Heading size={1} caps fit lineHeight={1.5} textColor="primary" >
               The Virtual DOM
             </Heading>
-            <Appear><Text textColor="tertiary">What? - An abstract version of original DOM</Text></Appear>
+            <Appear><Text textColor="primary">What? - An abstract version of original DOM</Text></Appear>
               <Layout>
                 <Fill>
                   <Appear>
-                  <Heading size={4} caps textColor="primary" bgColor="white" margin={10}>
+                  <Heading size={4} caps textColor="tertiary" bgColor="primary" margin={10}>
                     BENEFITS
                   </Heading>
                 </Appear>
                   <List>
-                    <Appear><ListItem>Easier to deal with</ListItem></Appear>
-                    <Appear><ListItem>Faster</ListItem></Appear>
+                    <Appear><ListItem textColor="primary">Easier to deal with</ListItem></Appear>
+                    <Appear><ListItem textColor="primary">Faster</ListItem></Appear>
                   </List>
                 </Fill>
                 <Fill>
                   <Appear>
-                  <Heading size={4} caps textColor="primary" bgColor="white" margin={10}>
+                  <Heading size={4} caps textColor="tertiary" bgColor="primary" margin={10}>
                     WORKINGS
                   </Heading>
                 </Appear>
                   <List>
-                    <Appear><ListItem>Find out when to re-rerender</ListItem></Appear>
-                    <Appear><ListItem>Efficiently find the diff</ListItem></Appear>
-                    <Appear><ListItem>Batch DOM read/write operations</ListItem></Appear>
-                    <Appear><ListItem>Update only the subtree</ListItem></Appear>
+                    <Appear><ListItem textColor="primary">Find out when to re-rerender</ListItem></Appear>
+                    <Appear><ListItem textColor="primary">Efficiently find the diff</ListItem></Appear>
+                    <Appear><ListItem textColor="primary">Batch DOM read/write operations</ListItem></Appear>
+                  <Appear><ListItem textColor="primary">Update only the subtree</ListItem></Appear>
                   </List>
                 </Fill>
               </Layout>
@@ -408,10 +403,10 @@ export default class Presentation extends React.Component {
 
           <Slide
             transition={["slide"]}
-            bgColor="primary"
+            bgColor="tertiary"
             notes="S:ReactJS - A declarative, efficient, and flexible JavaScript library for building user interfaces"
           >
-            <Heading size={1} caps fit lineHeight={1.5} textColor="tertiary" >
+            <Heading size={1} caps fit lineHeight={1.5} textColor="primary" >
               The Virtual DOM
             </Heading>
             <Image src={images.vdom.change.replace("/", "")} margin="0px auto 40px" height="293px"/>
@@ -420,22 +415,30 @@ export default class Presentation extends React.Component {
 
           <Slide
             transition={["zoom", "fade"]}
-            bgColor="primary"
+            bgColor="tertiary"
             notes={`
               S: react always marketed itself as the “V” in “MVC.” This caused some amount of frustration among web
               developers, who are used to working with complete frameworks. How do I fill in the missing pieces?
               Should I write my own? Should I just use an existing library? If so, which one?
             `}
           >
-            <Heading caps fit textColor="secondary">React Ecosystem</Heading>
-              <List textColor="white">
-                <Appear><ListItem>ES6/ES2015 and ES7</ListItem></Appear>
-                <Appear><ListItem>Build System: Webpack, Babel, npm, ...</ListItem></Appear>
-                <Appear><ListItem>Routing: react-router, ...</ListItem></Appear>
-                <Appear><ListItem>Application Architecture (Flux): Redux, Facebook's Flux, Alt..</ListItem></Appear>
-                <Appear><ListItem>InlineCSS: Radium, Aphrodite, ...</ListItem></Appear>
-                <Appear><ListItem>And many more ...</ListItem></Appear>
+            <Heading caps fit textColor="primary">React Ecosystem</Heading>
+              <List textColor="primary">
+                <Appear><ListItem textColor="primary">ES6/ES2015 and ES7</ListItem></Appear>
+                <Appear><ListItem textColor="primary">Build System: Webpack, Babel, npm, ...</ListItem></Appear>
+                <Appear><ListItem textColor="primary">Routing: react-router, ...</ListItem></Appear>
+                <Appear><ListItem textColor="primary">Application Architecture (Flux): Redux, Facebook's Flux, Alt..</ListItem></Appear>
+                <Appear><ListItem textColor="primary">InlineCSS: Radium, Aphrodite, ...</ListItem></Appear>
+                <Appear><ListItem textColor="primary">And many more ...</ListItem></Appear>
               </List>
+          </Slide>
+
+          <Slide
+            transition={["slide"]}
+            bgColor="secondary"
+            notes="C"
+          >
+            <GitHubCards />
           </Slide>
 
           <Slide transition={["slide"]} bgColor="primary" notes="C" >
