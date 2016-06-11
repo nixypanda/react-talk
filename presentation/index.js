@@ -114,7 +114,7 @@ export default class Presentation extends React.Component {
             notes="C: There hasn't been a day without a new javascript library being introduced."
           >
             <Image src={images.frameworks.replace("/", "")} margin="0px auto 40px" height="600px"/>
-          </Slide>		  
+          </Slide>
 
           <Slide
             transition={["fade"]}
@@ -141,7 +141,7 @@ export default class Presentation extends React.Component {
               <List>
                 <Appear><ListItem>Simple</ListItem></Appear>
                 <Appear><ListItem>Declarative</ListItem></Appear>
-                <Appear><ListItem>Composable Components</ListItem></Appear>              
+                <Appear><ListItem>Composable Components</ListItem></Appear>
               </List>
             </Slide>
 
@@ -178,8 +178,8 @@ export default class Presentation extends React.Component {
           >
             <Heading size={1} fit textColor="white" textFont="primary">
               Hello World!!
-            </Heading>            
-          </Slide>		
+            </Heading>
+          </Slide>
 
           <CodeSlide
             transition={[]}
@@ -203,8 +203,8 @@ export default class Presentation extends React.Component {
           >
             <Heading size={1} fit textColor="white" textFont="primary">
               Hello Sherub
-            </Heading>            
-          </Slide>		
+            </Heading>
+          </Slide>
 
           <CodeSlide
             transition={[]}
@@ -310,8 +310,9 @@ export default class Presentation extends React.Component {
               from above and immutable as far as the Component receiving them is concerned.
 
               A Component cannot change its props, but it is responsible for putting together the props of its child
-              Components. 
-            `}>
+              Components.
+            `}
+          >
             <Heading size={1} caps fit lineHeight={1.5} textColor="primary">
               Props
             </Heading>
@@ -327,7 +328,8 @@ export default class Presentation extends React.Component {
 
               A Component manages its own state internally, but—besides setting an initial state—has no business
               fiddling with the state of its children. You could say the state is private.
-            `}>
+            `}
+          >
             <Heading size={1} caps fit lineHeight={1.5} textColor="primary">
               State
             </Heading>
@@ -338,7 +340,8 @@ export default class Presentation extends React.Component {
             bgColor="tertiary"
             notes={`
               C
-            `}>
+            `}
+          >
             <Heading size={1} caps fit lineHeight={1.5} textColor="primary">
               Life cycle
             </Heading>

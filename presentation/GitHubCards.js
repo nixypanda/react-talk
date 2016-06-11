@@ -1,25 +1,26 @@
-import React from 'react';
-const API = 'https://api.github.com/users';
+import React from "react";
+const API = "https://api.github.com/users";
 
 export default class App extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
-      username: 'jckdrpr',
-      name:'',
-      avatar:'',
-      bio:'',
-      repos:'',
-      followers: '',
-      following:'',
-      homeUrl:'',
-      notFound:''
-    }
+      username: "jckdrpr",
+      name: "",
+      avatar: "",
+      bio: "",
+      repos: "",
+      followers: "",
+      following: "",
+      homeUrl: "",
+      notFound: ""
+    };
   }
-  fetchProfile(username) { 
-    let url = `${API}/${username}`;
+
+  fetchProfile(username) {
+    const url = `${API}/${username}`;
     fetch(url)
-      .then((res) => res.json() )
+      .then((res) => res.json())
       .then((data) => {
         this.setState({
           username: data.login,
@@ -31,13 +32,15 @@ export default class App extends React.Component {
           following: data.following,
           homeUrl: data.html_url,
           notFound: data.message
-        })
+        });
       })
-      .catch((error) => console.log('Oops! . There Is A Problem') )
+      .catch((error) => console.error(error));
   }
+
   componentDidMount() {
     this.fetchProfile(this.state.username);
   }
+
   render() {
     return (
        <section id="card">
@@ -70,7 +73,8 @@ class SearchProfile extends React.Component {
            type="search"
            onChange={(e) => this.setState({ username: e.target.value })}
            value={this.state.username}
-           placeholder="Type Username + Enter" />
+           placeholder="Type Username + Enter"
+         />
        </label>
      </form>
     );
@@ -78,18 +82,18 @@ class SearchProfile extends React.Component {
 }
 
 const Profile = ({ data }) => (
-  (data.notFound === 'Not Found')
+  (data.notFound === "Not Found")
               ?
    <div className="notfound">
       <h2>Oops !!!</h2>
-      <p>Couldn't Find The You Were Looking For. Try Again </p>
+      <p>Couldn"t Find The You Were Looking For. Try Again </p>
    </div>
-              : 
+              :
   <section className="github--profile">
     <div className="github--profile__info">
       <img src={data.avatar} alt={data.username}/>
       <h2>{data.username}</h2>
-      <h3>{data.bio || 'I Live In My Mind'}</h3>
+      <h3>{data.bio || "I Live In My Mind"}</h3>
     </div>
     <div className="github--profile__state">
       <ul>
