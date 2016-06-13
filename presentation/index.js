@@ -52,6 +52,7 @@ const images = {
   kat: require("../assets/kat.png"),
   logo: require("../assets/formidable-logo.svg"),
   markdown: require("../assets/markdown.png"),
+  lifecycle: require("../assets/reactlife_cycle.png"),
   vdom: {
     result: require("../assets/dom.jpg"),
     change: require("../assets/vdom.jpg")
@@ -64,6 +65,11 @@ const theme = createTheme({
   primary: "#0E2738",
   secondary: "beige"
 });
+
+const llis = {
+  textSize: 18,
+  textColor: "primary"
+};
 
 export default class Presentation extends React.Component {
   render() {
@@ -266,6 +272,7 @@ export default class Presentation extends React.Component {
             </Heading>
             <Layout>
               <List textColor="primary">
+                <Appear><ListItem>Static Mental Model</ListItem></Appear>
                 <Appear><ListItem>Properties</ListItem></Appear>
                 <Appear><ListItem>State</ListItem></Appear>
                 <Appear><ListItem>Lifecycle</ListItem></Appear>
@@ -276,7 +283,7 @@ export default class Presentation extends React.Component {
           </Slide>
 
           <Slide
-            transition={["spin", "slide"]}
+            transition={["slide"]}
             bgColor="tertiary"
             notes="S"
           >
@@ -292,14 +299,14 @@ export default class Presentation extends React.Component {
           </Slide>
 
           <Slide
-            transition={["spin", "slide"]}
+            transition={["slide"]}
             bgColor="tertiary"
             notes="S"
           >
             <Heading size={1} caps fit lineHeight={1.5} textColor="primary">
               UI = f(state)
             </Heading>
-            <Text textColor="primary">i.e. a static mental modal for your application</Text>
+            <Text textColor="primary">i.e. a static mental model for your application</Text>
           </Slide>
 
           <Slide
@@ -339,6 +346,7 @@ export default class Presentation extends React.Component {
           <Slide
             transition={["slide"]}
             bgColor="tertiary"
+            className="text-center"
             notes={`
               C : Understanding the component lifecycle will enable you to perform certain actions when
               a component is created or destroyed. Further more it gives you the opportunity to decide
@@ -357,13 +365,48 @@ export default class Presentation extends React.Component {
                   </Heading>
                 </Appear>
                 <List>
-                  <Appear><ListItem textColor="primary"><Code>getDefaultProps</Code></ListItem></Appear>
-                  <Appear><ListItem textColor="primary"><Code>getInitialState</Code></ListItem></Appear>
-                  <Appear><ListItem textColor="primary"><Code>render</Code></ListItem></Appear>
-                  <Appear><ListItem textColor="primary"><Code>componentDidMount</Code></ListItem></Appear>
+                  <Appear><ListItem {...llis}><Code {...llis}>getDefaultProps</Code></ListItem></Appear>
+                  <Appear><ListItem {...llis}><Code {...llis}>getInitialState</Code></ListItem></Appear>
+                  <Appear><ListItem {...llis}><Code {...llis}>render</Code></ListItem></Appear>
+                  <Appear><ListItem {...llis}><Code {...llis}>componentDidMount</Code></ListItem></Appear>
                 </List>
               </Fill>
+              <Fill>
+                <Appear>
+                  <Heading size={4} caps textColor="tertiary" bgColor="primary" margin={10}>
+                    update
+                  </Heading>
+                </Appear>
+                <List>
+                  <Appear><ListItem {...llis}><Code {...llis}>componentWillReceiveProps</Code></ListItem></Appear>
+                  <Appear><ListItem {...llis}><Code {...llis}>shouldComponentUpdate</Code></ListItem></Appear>
+                  <Appear><ListItem {...llis}><Code {...llis}>render</Code></ListItem></Appear>
+                  <Appear><ListItem {...llis}><Code {...llis}>componentWillUpdate</Code></ListItem></Appear>
+                  <Appear><ListItem {...llis}><Code {...llis}>componentDidUpdate</Code></ListItem></Appear>
+                </List>
+              </Fill>
+              <Fill>
+                <Appear>
+                  <Heading size={4} caps textColor="tertiary" bgColor="primary" margin={10}>
+                    destroy
+                  </Heading>
+                </Appear>
+                <List>
+                  <Appear><ListItem {...llis}><Code {...llis}>componentWillUnmount</Code></ListItem></Appear>
+                </List>
+              </Fill>
+            </Layout>
+          </Slide>
 
+          <Slide
+            transition={["slide"]}
+            bgColor="tertiary"
+            notes={`C:`}
+          >
+            <Heading caps textColor="primary" >
+              Lifecycle methods
+            </Heading>
+            <Image src={images.lifecycle.replace("/", "")} margin="0px auto 40px" height="700px"/>
           </Slide>
 
           <Slide
