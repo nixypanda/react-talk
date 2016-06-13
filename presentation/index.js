@@ -6,6 +6,7 @@ import {
   Appear,
   BlockQuote,
   Cite,
+  Code,
   Deck,
   Fill,
   Heading,
@@ -202,7 +203,7 @@ export default class Presentation extends React.Component {
             notes="S: This will be the output"
           >
             <Heading size={1} fit textColor="white" textFont="primary">
-              Hello Sherub
+              Hello Tech Social
             </Heading>
           </Slide>
 
@@ -339,12 +340,30 @@ export default class Presentation extends React.Component {
             transition={["slide"]}
             bgColor="tertiary"
             notes={`
-              C
+              C : Understanding the component lifecycle will enable you to perform certain actions when
+              a component is created or destroyed. Further more it gives you the opportunity to decide
+               if a component should be updated in the first place and to react to props
+                or state changes accordingly.
             `}
           >
             <Heading size={1} caps fit lineHeight={1.5} textColor="primary">
               Life cycle
             </Heading>
+            <Layout>
+              <Fill>
+                <Appear>
+                  <Heading size={4} caps textColor="tertiary" bgColor="primary" margin={10}>
+                    INITIAL
+                  </Heading>
+                </Appear>
+                <List>
+                  <Appear><ListItem textColor="primary"><Code>getDefaultProps</Code></ListItem></Appear>
+                  <Appear><ListItem textColor="primary"><Code>getInitialState</Code></ListItem></Appear>
+                  <Appear><ListItem textColor="primary"><Code>render</Code></ListItem></Appear>
+                  <Appear><ListItem textColor="primary"><Code>componentDidMount</Code></ListItem></Appear>
+                </List>
+              </Fill>
+
           </Slide>
 
           <Slide
@@ -455,4 +474,3 @@ export default class Presentation extends React.Component {
     );
   }
 }
-

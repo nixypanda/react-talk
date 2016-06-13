@@ -12,7 +12,7 @@ var HM = React.createClass({
 });
 
 ReactDOM.render(
-  React.createElement(HM, {name: "Sherub"}),
+  React.createElement(HM, {name: "Tech Social"}),
   mountNode
 );
 `;
