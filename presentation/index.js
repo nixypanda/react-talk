@@ -1,6 +1,5 @@
 // Import React
 import React from "react";
-
 // Import Spectacle Core tags
 import {
   Appear,
@@ -34,7 +33,6 @@ import GitHubCards from "./GitHubCards";
 require("normalize.css");
 require("spectacle/lib/themes/default/index.css");
 require("./GitHubCards.css");
-
 
 // Importing all of the code snippets
 const CODE_SNIPPETS = {
@@ -86,21 +84,22 @@ export default class Presentation extends React.Component {
 
           <Slide transition={["zoom", "fade"]} bgColor="primary" notes="CS">
             <Heading caps fit textColor="secondary">About the speakers</Heading>
-            <Layout>
-              <List textColor="white">
-                <ListItem>Sherub Thakur</ListItem>
-                <ListItem>Sapient Global Markets</ListItem>
-                <ListItem>Gurgaon GGN</ListItem>
-                <ListItem>@jckdrpr</ListItem>
-                <ListItem>http://github.com/jckdrpr</ListItem>
-              </List>
-              <List textColor="white">
-                <ListItem>Charu Agarwal</ListItem>
-                <ListItem>Sapient Global Markets</ListItem>
-                <ListItem>Gurgaon GGN</ListItem>
-                <ListItem>http://github.com/itscharu</ListItem>
-              </List>
-            </Layout>
+          <div key={1} style={{ display: "flex", flexDirection: "row", flexWrap: "wrap" }}>
+              <section className="github--profile" style={{ "flex": 1 }}>
+                <div className="github--profile__info">
+                  <img src={"https://avatars.githubusercontent.com/u/10345612?v=3"} />
+                  <h2>{"Sherub Thakur"}</h2>
+                  <h3>{"@jckdrpr"}</h3>
+                </div>
+              </section>
+              <section className="github--profile" style={{ "flex": 1 }} >
+                <div className="github--profile__info">
+                  <img src={"https://avatars.githubusercontent.com/u/275400?v=3"} />
+                  <h2>{"Charu Agarwal"}</h2>
+                  <h3>{"@itscharu"}</h3>
+                </div>
+                </section>
+            </div>
           </Slide>
 
           <Slide
@@ -133,7 +132,7 @@ export default class Presentation extends React.Component {
               Simply express how your app should look at any given point in time, and React will automatically manage
               all UI updates when your underlying data changes.
 
-              When the data changes, React conceptually hits the 'refresh' button, and knows to only update the changed parts.
+              When the data changes, React conceptually hits the "refresh" button, and knows to only update the changed parts.
 
               React is all about building reusable components. In fact, with React the only thing you do is build
               components. Since they are so encapsulated, components make code reusability, testing, and separation
@@ -163,7 +162,7 @@ export default class Presentation extends React.Component {
               either only javascript or HTML and javascript(JSX)
             `}
             ranges={[
-              { loc: [ 0, 17], title: "Let\'s dive right in" },
+              { loc: [ 0, 17], title: "Let\"s dive right in" },
               { loc: [ 0, 17], title: "Hello World!! Perhaps.." },
               { loc: [ 2, 3], note: "creating a react component" },
               { loc: [ 3, 10], note: "The render method" },
@@ -314,7 +313,7 @@ export default class Presentation extends React.Component {
             bgColor="tertiary"
             notes={`
               C
-              props (short for properties) are a Component's configuration, its options if you may. They are received
+              props (short for properties) are a Component"s configuration, its options if you may. They are received
               from above and immutable as far as the Component receiving them is concerned.
 
               A Component cannot change its props, but it is responsible for putting together the props of its child
@@ -416,7 +415,7 @@ export default class Presentation extends React.Component {
               S:
               Some kind of light weight copy of our DOM. We can change it as we want and then save to our real DOM
               tree. When we save it we should compare, find difference and change (re-render) what should be
-              changed. It is much faster than working directly with DOM, because it doesn't require all the
+              changed. It is much faster than working directly with DOM, because it doesn"t require all the
               heavyweight parts that go into a real DOM.
 
               But only if we are working with it in a right way. There are two problems to solve:
@@ -492,7 +491,7 @@ export default class Presentation extends React.Component {
                 <Appear><ListItem textColor="primary">ES6/ES2015 and ES7</ListItem></Appear>
                 <Appear><ListItem textColor="primary">Build System: Webpack, Babel, npm, ...</ListItem></Appear>
                 <Appear><ListItem textColor="primary">Routing: react-router, ...</ListItem></Appear>
-                <Appear><ListItem textColor="primary">Application Architecture (Flux): Redux, Facebook's Flux, Alt..</ListItem></Appear>
+                <Appear><ListItem textColor="primary">Application Architecture (Flux): Redux, Facebook"s Flux, Alt..</ListItem></Appear>
                 <Appear><ListItem textColor="primary">InlineCSS: Radium, Aphrodite, ...</ListItem></Appear>
                 <Appear><ListItem textColor="primary">And many more ...</ListItem></Appear>
               </List>
