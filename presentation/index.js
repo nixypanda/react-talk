@@ -52,7 +52,7 @@ const images = {
   kat: require("../assets/kat.png"),
   logo: require("../assets/formidable-logo.svg"),
   markdown: require("../assets/markdown.png"),
-  lifecycle: require("../assets/reactlife_cycle.png"),
+  lifecycle: require("../assets/react_lifecycle.jpg"),
   vdom: {
     result: require("../assets/dom.jpg"),
     change: require("../assets/vdom.jpg")
