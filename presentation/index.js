@@ -162,7 +162,7 @@ export default class Presentation extends React.Component {
               either only javascript or HTML and javascript(JSX)
             `}
             ranges={[
-              { loc: [ 0, 17], title: "Let\"s dive right in" },
+              { loc: [ 0, 17], title: "Let\'s dive right in" },
               { loc: [ 0, 17], title: "Hello World!! Perhaps.." },
               { loc: [ 2, 3], note: "creating a react component" },
               { loc: [ 3, 10], note: "The render method" },
@@ -276,7 +276,6 @@ export default class Presentation extends React.Component {
                 <Appear><ListItem>State</ListItem></Appear>
                 <Appear><ListItem>Lifecycle</ListItem></Appear>
                 <Appear><ListItem>Virtual DOM</ListItem></Appear>
-                <Appear><ListItem>Data flow</ListItem></Appear>
               </List>
             </Layout>
           </Slide>
@@ -402,9 +401,6 @@ export default class Presentation extends React.Component {
             bgColor="tertiary"
             notes={`C:`}
           >
-            <Heading caps textColor="primary" >
-              Lifecycle methods
-            </Heading>
             <Image src={images.lifecycle.replace("/", "")} margin="0px auto 40px" height="700px"/>
           </Slide>
 
